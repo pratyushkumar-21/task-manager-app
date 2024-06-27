@@ -1,3 +1,7 @@
 body {
   background-color: #eee;
 }
+
+.task-action {
+  cursor: pointer;
+}

@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Button, Form, Stack } from "react-bootstrap";
 
 export default function TaskForm(props) {
-  const { title = "", description = "", onFormSubmit } = props;
+  const {
+    title = "",
+    description = "",
+    onFormSubmit,
+    btnText = "Create Task",
+  } = props;
 
   const [formData, setFormData] = useState({
     title,
@@ -42,7 +47,7 @@ export default function TaskForm(props) {
 
       <Stack>
         <Button variant="outline-primary" type="submit">
-          Create Task
+          {btnText}
         </Button>
       </Stack>
     </Form>

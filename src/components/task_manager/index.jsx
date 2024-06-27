@@ -6,7 +6,7 @@ import { TaskManagerContext } from "./context";
 import { data } from "./utils";
 
 export default function TaskManager() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(data);
 
   return (
     <TaskManagerContext.Provider value={{ tasks, setTasks }}>
