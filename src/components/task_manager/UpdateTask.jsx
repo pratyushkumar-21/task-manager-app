@@ -32,7 +32,7 @@ export default function UpdateTask(props) {
         onClick={() => setShowModal(true)}
         className="task-action"
       >
-        <Pen />
+        <Pen color="blue" />
       </Badge>
 
       <Modal show={showModal} onHide={handleClose}>

@@ -17,7 +17,6 @@ export default function CreateTask(props) {
 
     const newTask = {
       ...formData,
-      status: STATUS.PENDING,
       id: Date.now(),
     };
 
