@@ -1,10 +1,17 @@
+import { Container, Row, Col } from "react-bootstrap";
+import TaskCard from "./TaskCard";
+
 export default function TaskList(props) {
   const { tasks } = props;
   return (
-    <div>
-      {tasks.map((task) => (
-        <h1>{task.title}</h1>
-      ))}
-    </div>
+    <Container fluid>
+      <Row>
+        {tasks.map((task) => (
+          <Col className="mt-3" key={task.id}>
+            <TaskCard {...task} />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
