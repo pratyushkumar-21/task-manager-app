@@ -27,6 +27,7 @@ export const SORTING_OPTIONS = [
   },
 ];
 
+export const LOCAL_STORAGE_TASKS_KEY = "tasks";
 export const SORT_QUERY_PARAM_NAME = "sort_by";
 export const FILTER_QUERY_PARAM_NAME = "filter_by";
 

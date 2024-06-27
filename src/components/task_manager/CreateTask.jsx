@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { TaskManagerContext } from "./context";
 import TaskForm from "./TaskForm";
+import { setTasksToLocalStorage } from "./utils";
 
 export default function CreateTask() {
   const [showModal, setShowModal] = useState(false);
@@ -19,7 +20,11 @@ export default function CreateTask() {
       id: Date.now(),
     };
 
-    setTasks((prevTasks) => [newTask, ...prevTasks]);
+    setTasks((prevTasks) => {
+      const newData = [newTask, ...prevTasks];
+      setTasksToLocalStorage(newData);
+      return newData;
+    });
     handleClose();
   };
 

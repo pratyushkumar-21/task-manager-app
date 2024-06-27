@@ -9,37 +9,51 @@ import {
 import UpdateTask from "./UpdateTask";
 import { TaskManagerContext } from "./context";
 import { STATUS } from "./constant";
+import { setTasksToLocalStorage } from "./utils";
 
 export default function QuickActions(props) {
   const { id: taskId, status } = props;
   const { setTasks } = useContext(TaskManagerContext);
 
   const handleDelete = () => {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    setTasks((prevTasks) => {
+      const newData = prevTasks.filter((task) => task.id !== taskId);
+      setTasksToLocalStorage(newData);
+      return newData;
+    });
   };
 
   const handleMarkAsDone = () => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks((prevTasks) => {
+      const newData = prevTasks.map((task) =>
         task.id === taskId ? { ...task, status: STATUS.DONE } : task
-      )
-    );
+      );
+      setTasksToLocalStorage(newData);
+
+      return newData;
+    });
   };
 
   const handleMarkAsInProgress = () => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks((prevTasks) => {
+      const newData = prevTasks.map((task) =>
         task.id === taskId ? { ...task, status: STATUS.IN_PROGRESS } : task
-      )
-    );
+      );
+      setTasksToLocalStorage(newData);
+
+      return newData;
+    });
   };
 
   const handleMarkAsPending = () => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks((prevTasks) => {
+      const newData = prevTasks.map((task) =>
         task.id === taskId ? { ...task, status: STATUS.PENDING } : task
-      )
-    );
+      );
+      setTasksToLocalStorage(newData);
+
+      return newData;
+    });
   };
 
   return (

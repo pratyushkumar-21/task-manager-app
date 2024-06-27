@@ -3,18 +3,10 @@ import { Container, Stack } from "react-bootstrap";
 import TaskList from "./TaskList";
 import NavBar from "./NavBar";
 import { TaskManagerContext } from "./context";
-import {
-  data,
-  FILTER_QUERY_PARAM_NAME,
-  SORT_QUERY_PARAM_NAME,
-} from "./constant";
-import { getQueryParameter } from "./utils";
+import { getTasks } from "./utils";
 
 export default function TaskManager() {
-  const [tasks, setTasks] = useState(data);
-
-  const filterByQueryParam = getQueryParameter(FILTER_QUERY_PARAM_NAME);
-  const sortByQueryParam = getQueryParameter(SORT_QUERY_PARAM_NAME);
+  const [tasks, setTasks] = useState(getTasks());
 
   return (
     <TaskManagerContext.Provider value={{ tasks, setTasks }}>

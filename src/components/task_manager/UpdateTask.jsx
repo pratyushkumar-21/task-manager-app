@@ -3,6 +3,7 @@ import { Badge, Modal } from "react-bootstrap";
 import { Pen } from "react-bootstrap-icons";
 import { TaskManagerContext } from "./context";
 import TaskForm from "./TaskForm";
+import { setTasksToLocalStorage } from "./utils";
 
 export default function UpdateTask(props) {
   const { id: taskId } = props;
@@ -16,11 +17,15 @@ export default function UpdateTask(props) {
   const handleFormSubmit = (e, formData) => {
     e.preventDefault();
 
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
+    setTasks((prevTasks) => {
+      const newData = prevTasks.map((task) =>
         task.id === taskId ? { ...task, ...formData } : task
-      )
-    );
+      );
+
+      setTasksToLocalStorage(newData);
+
+      return newData;
+    });
     handleClose();
   };
 
