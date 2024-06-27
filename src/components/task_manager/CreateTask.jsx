@@ -1,10 +1,9 @@
 import { useState, useContext } from "react";
-import { Button, Form, Stack, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { TaskManagerContext } from "./context";
 import TaskForm from "./TaskForm";
-import { STATUS } from "./utils";
 
-export default function CreateTask(props) {
+export default function CreateTask() {
   const [showModal, setShowModal] = useState(false);
   const { setTasks } = useContext(TaskManagerContext);
 

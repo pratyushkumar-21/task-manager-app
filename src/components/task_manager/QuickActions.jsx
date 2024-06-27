@@ -10,7 +10,7 @@ import UpdateTask from "./UpdateTask";
 import { TaskManagerContext } from "./context";
 import { STATUS } from "./utils";
 
-export default function TaskCardActions(props) {
+export default function QuickActions(props) {
   const { id: taskId, status } = props;
   const { setTasks } = useContext(TaskManagerContext);
 

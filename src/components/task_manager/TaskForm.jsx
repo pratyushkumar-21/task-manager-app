@@ -24,7 +24,6 @@ export default function TaskForm(props) {
     let value = e.target.value;
 
     if (filedName === "priority") value = parseInt(value);
-
     setFormData((prevData) => ({ ...prevData, [filedName]: value }));
   };
 
