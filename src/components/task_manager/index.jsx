@@ -1,18 +1,19 @@
+import { useState, createContext } from "react";
 import { Stack } from "react-bootstrap";
-import { useState } from "react";
-
 import TaskList from "./TaskList";
 import DataTransformer from "./DataTrasnformer";
-
+import { TaskManagerContext } from "./context";
 import { data } from "./utils";
 
 export default function TaskManager() {
-  const [tasks, setTask] = useState(data);
+  const [tasks, setTasks] = useState([]);
 
   return (
-    <Stack gap={3} className="m-4">
-      <DataTransformer />
-      <TaskList tasks={tasks} />
-    </Stack>
+    <TaskManagerContext.Provider value={{ tasks, setTasks }}>
+      <Stack gap={3} className="m-4">
+        <DataTransformer />
+        <TaskList />
+      </Stack>
+    </TaskManagerContext.Provider>
   );
 }

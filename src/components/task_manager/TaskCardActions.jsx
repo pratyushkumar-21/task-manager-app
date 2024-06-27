@@ -1,5 +1,4 @@
-import Stack from "react-bootstrap/Stack";
-import Badge from "react-bootstrap/Badge";
+import { Stack, Badge, Tooltip } from "react-bootstrap";
 import { Trash, Pen } from "react-bootstrap-icons";
 
 export default function TaskCardActions() {

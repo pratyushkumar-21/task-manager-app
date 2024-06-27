@@ -1,7 +1,10 @@
-/*
-    This component is for handling Sorting and Filtering
-*/
+import { Button, Stack } from "react-bootstrap";
+import CreateTask from "./CreateTask";
 
 export default function DataTransformer() {
-  return <div> Sorting and filtering!</div>;
+  return (
+    <Stack direction="horizontal">
+      <CreateTask />
+    </Stack>
+  );
 }
