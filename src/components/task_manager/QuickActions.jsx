@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap-icons";
 import UpdateTask from "./UpdateTask";
 import { TaskManagerContext } from "./context";
-import { STATUS } from "./utils";
+import { STATUS } from "./constant";
 
 export default function QuickActions(props) {
   const { id: taskId, status } = props;

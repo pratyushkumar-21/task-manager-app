@@ -1,5 +1,5 @@
 import Badge from "react-bootstrap/Badge";
-import { STATUS, STATUS_DISPLAY_MAP } from "../task_manager/utils";
+import { STATUS, STATUS_DISPLAY_MAP } from "../task_manager/constant";
 
 export default function StatusTag(props) {
   const { status } = props;

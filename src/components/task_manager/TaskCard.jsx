@@ -1,7 +1,7 @@
 import { Card, Stack } from "react-bootstrap";
 import StatusTag from "./StatusTag";
 import QuickActions from "./QuickActions";
-import { PRIORITY } from "./utils";
+import { PRIORITY } from "./constant";
 import {
   ThermometerHalf,
   ThermometerHigh,
@@ -20,12 +20,12 @@ export default function TaskCard(props) {
   return (
     <Card style={{ width: "20rem" }}>
       <Card.Body>
-        <Card.Title className="text-secondary text-center">
+        <Card.Title>
           {title} ({priorityIconMap[priority]})
         </Card.Title>
         <hr />
-        <Card.Text className="text-muted">{description}</Card.Text>
-        <hr />
+        <Card.Text className="text-secondary">{description}</Card.Text>
+        {description && <hr />}
         <Stack direction="horizontal" gap={3}>
           <StatusTag status={status} />
           <QuickActions {...props} />

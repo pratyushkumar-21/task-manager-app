@@ -25,7 +25,7 @@ export default function CreateTask() {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setShowModal(true)}>
+      <Button variant="outline-primary" onClick={() => setShowModal(true)}>
         Create New Task
       </Button>
 

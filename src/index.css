@@ -5,3 +5,20 @@ body {
 .task-action {
   cursor: pointer;
 }
+
+.task-col-container {
+  flex-grow: 0;
+}
+
+.nav-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.sort-filter-container {
+  display: flex;
+  column-gap: 40px;
+  row-gap: 5px;
+  flex-wrap: wrap;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Stack } from "react-bootstrap";
-import { PRIORITY, STATUS, STATUS_DISPLAY_MAP } from "./utils";
+import { PRIORITY, STATUS, STATUS_DISPLAY_MAP } from "./constant";
 
 export default function TaskForm(props) {
   const {
