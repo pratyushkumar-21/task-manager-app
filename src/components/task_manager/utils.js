@@ -36,7 +36,7 @@ export const setTasksToLocalStorage = (data) => {
 };
 
 export const getTasksFromLocalStorage = () => {
-  return getDataFromLocalStorage(LOCAL_STORAGE_TASKS_KEY);
+  return getDataFromLocalStorage(LOCAL_STORAGE_TASKS_KEY) || [];
 };
 
 export const sortTasksByPriority = (tasks, priority) => {
