@@ -30,7 +30,7 @@ export default function TaskForm(props) {
   return (
     <Form onSubmit={(e) => onFormSubmit(e, formData)}>
       <Form.Group className="mb-3" controlId="title">
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Title*</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter title"
@@ -49,11 +49,12 @@ export default function TaskForm(props) {
           name="description"
           onChange={handleInputChange}
           value={formData.description}
+          placeholder="Enter description..."
         />
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="priority">Select Priority</Form.Label>
+        <Form.Label htmlFor="priority">Select Priority*</Form.Label>
         <Form.Select
           id="priority"
           value={formData.priority}
@@ -69,7 +70,7 @@ export default function TaskForm(props) {
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="status">Select Status</Form.Label>
+        <Form.Label htmlFor="status">Select Status*</Form.Label>
         <Form.Select
           id="status"
           value={formData.status}
