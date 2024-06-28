@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { Form, Stack } from "react-bootstrap";
-import { SORTING_OPTIONS, PRIORITY, SORT_QUERY_PARAM_NAME } from "./constant";
+import { SORTING_OPTIONS, SORT_QUERY_PARAM_NAME } from "./constant";
 import {
   setQueryParameter,
   removeQueryParameter,
