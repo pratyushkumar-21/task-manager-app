@@ -1,3 +1,5 @@
+### Hosted url - https://task-manager-app-ivory.vercel.app/
+
 ### Setup
   1. git clone git@github.com:pratyushkumar-21/task-manager-app.git
   2. cd task-manager-app
