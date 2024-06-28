@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Form, Stack } from "react-bootstrap";
 import { SORTING_OPTIONS, PRIORITY, SORT_QUERY_PARAM_NAME } from "./constant";
 import {
@@ -10,10 +10,13 @@ import {
 import { TaskManagerContext } from "./context";
 
 export default function SortTask() {
-  const [sortValue, setSortValue] = useState(
-    getQueryParameter(SORT_QUERY_PARAM_NAME) ?? ""
-  );
+  const sortQueryParamValue = getQueryParameter(SORT_QUERY_PARAM_NAME);
+  const [sortValue, setSortValue] = useState(sortQueryParamValue ?? "");
   const { setTasks } = useContext(TaskManagerContext);
+
+  useEffect(() => {
+    setSortValue(sortQueryParamValue ?? "");
+  }, [sortQueryParamValue]);
 
   const handleSort = (e) => {
     const value = e.target.value;

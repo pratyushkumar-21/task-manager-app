@@ -47,7 +47,13 @@ export const sortTasksByPriority = (tasks, priority) => {
 };
 
 export const filterTasksByStatus = (tasks, status) => {
-  return tasks.filter((task) => task.status === status);
+  let filteredData = tasks.filter((task) => task.status === status);
+
+  const sortQueryParam = getQueryParameter(SORT_QUERY_PARAM_NAME);
+  if (sortQueryParam)
+    filteredData = sortTasksByPriority(filteredData, sortQueryParam);
+
+  return filteredData;
 };
 
 export const getTasks = () => {

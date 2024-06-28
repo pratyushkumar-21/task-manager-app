@@ -9,51 +9,46 @@ import {
 import UpdateTask from "./UpdateTask";
 import { TaskManagerContext } from "./context";
 import { STATUS } from "./constant";
-import { setTasksToLocalStorage } from "./utils";
+import {
+  setTasksToLocalStorage,
+  getTasksFromLocalStorage,
+  getTasks,
+} from "./utils";
 
 export default function QuickActions(props) {
   const { id: taskId, status } = props;
   const { setTasks } = useContext(TaskManagerContext);
+  const tasks = getTasksFromLocalStorage();
+
+  const saveTaskAction = (updatedTasks) => {
+    setTasksToLocalStorage(updatedTasks);
+    setTasks(getTasks());
+  };
 
   const handleDelete = () => {
-    setTasks((prevTasks) => {
-      const newData = prevTasks.filter((task) => task.id !== taskId);
-      setTasksToLocalStorage(newData);
-      return newData;
-    });
+    const updatedTasks = tasks.filter((task) => task.id !== taskId);
+    saveTaskAction(updatedTasks);
   };
 
   const handleMarkAsDone = () => {
-    setTasks((prevTasks) => {
-      const newData = prevTasks.map((task) =>
-        task.id === taskId ? { ...task, status: STATUS.DONE } : task
-      );
-      setTasksToLocalStorage(newData);
-
-      return newData;
-    });
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, status: STATUS.DONE } : task
+    );
+    saveTaskAction(updatedTasks);
   };
 
   const handleMarkAsInProgress = () => {
-    setTasks((prevTasks) => {
-      const newData = prevTasks.map((task) =>
-        task.id === taskId ? { ...task, status: STATUS.IN_PROGRESS } : task
-      );
-      setTasksToLocalStorage(newData);
-
-      return newData;
-    });
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, status: STATUS.IN_PROGRESS } : task
+    );
+    saveTaskAction(updatedTasks);
   };
 
   const handleMarkAsPending = () => {
-    setTasks((prevTasks) => {
-      const newData = prevTasks.map((task) =>
-        task.id === taskId ? { ...task, status: STATUS.PENDING } : task
-      );
-      setTasksToLocalStorage(newData);
-
-      return newData;
-    });
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, status: STATUS.PENDING } : task
+    );
+    saveTaskAction(updatedTasks);
   };
 
   return (

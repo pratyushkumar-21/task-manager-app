@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Form, Stack } from "react-bootstrap";
 import {
   STATUS_DISPLAY_MAP,
@@ -16,10 +16,13 @@ import {
 import { TaskManagerContext } from "./context";
 
 export default function FilterTask() {
-  const [filterValue, setFilterValue] = useState(
-    getQueryParameter(FILTER_QUERY_PARAM_NAME) ?? ""
-  );
+  const filterQueryParamValue = getQueryParameter(FILTER_QUERY_PARAM_NAME);
+  const [filterValue, setFilterValue] = useState(filterQueryParamValue ?? "");
   const { setTasks } = useContext(TaskManagerContext);
+
+  useEffect(() => {
+    setFilterValue(filterQueryParamValue ?? "");
+  }, [filterQueryParamValue]);
 
   const handleFilter = (e) => {
     const value = e.target.value;
